@@ -16,7 +16,9 @@
 
             <Label Text="Orientation: " FontSize="Medium" />
             <Label Text="{Binding Orientation}" FontSize="Large" />
-            <Button Text="Get Orientation" Command="{Binding GetOrientationCommand}" />
+            <Button Text="Get Orientation" Command="{Binding GetOrientationCommand}" 
+                    AutomationProperties.IsInAccessibleTree="True"
+                    AutomationProperties.HelpText="Welcome to the Job Manager Application"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
