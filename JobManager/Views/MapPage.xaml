@@ -14,7 +14,8 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
-            <Button Text="Get Location" Command="{Binding GetLocationCommand}" />
+            <Button Text="Get Location" Command="{Binding GetLocationCommand}"   AutomationProperties.IsInAccessibleTree="True"
+                    AutomationProperties.HelpText="After Press. This button helps to get location"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
