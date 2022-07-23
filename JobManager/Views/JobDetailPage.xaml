@@ -22,13 +22,30 @@
     <ContentPage.Content>
         <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsBusy}">
             <StackLayout Margin="20" VerticalOptions="FillAndExpand">
-                <Label Text="Name:" FontSize="Medium" />
-                <Entry Text="{Binding Name}" FontSize="Small"/>
-                <Label Text="Description:" FontSize="Medium" />
-                <Entry Text="{Binding Description}" FontSize="Small"/>
-                <Button Text="Save" Command="{Binding SaveCommand}" />
-                <Button Text="Take Picture" Command="{Binding TakePictureCommand}" />
-                <Image Source="{Binding Picture}"/>
+                <Label x:Name="LabelName" Text="Name:" FontSize="Medium" />
+                <Entry
+                    Text="{Binding Name}" FontSize="Small"
+                    AutomationProperties.IsInAccessibleTree="True"
+                    AutomationProperties.LabeledBy="x:Reference LabelName"/>
+
+
+                <Label x:Name="LabelDescription" Text="Description:" FontSize="Medium" />
+                <Entry
+                    Text="{Binding Name}" FontSize="Small"
+                    AutomationProperties.IsInAccessibleTree="True"
+                    AutomationProperties.LabeledBy="x:Reference LabelDescription"/>
+
+
+                <Button Text="Save" Command="{Binding SaveCommand}"  AutomationProperties.IsInAccessibleTree="True"
+                        AutomationProperties.HelpText="After Press. This button helps to Save Information"/>
+
+                <Button Text="Take Picture" Command="{Binding TakePictureCommand}"  AutomationProperties.IsInAccessibleTree="True"
+                        AutomationProperties.HelpText="After Press. This button click pictures"/>
+
+
+                <Image Source="{Binding Picture}" 
+                       AutomationProperties.IsInAccessibleTree="True"
+                       AutomationProperties.Name="{Binding Description}"/>
 
                 <Label Text="Pictures:" FontSize="Large" />
 
@@ -44,7 +61,9 @@
                                     <Image
                                         Source="{Binding Source}"
                                         WidthRequest="200"
-                                        HeightRequest="200"/>
+                                        HeightRequest="200" 
+                                        AutomationProperties.IsInAccessibleTree="True"
+                                        AutomationProperties.Name="{Binding Description}"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
