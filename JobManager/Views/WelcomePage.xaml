@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:JobManager.ViewModels"
+             x:Class="JobManager.Views.WelcomePage">
+
+    <ContentPage.BindingContext>
+        <viewmodels:WelcomeViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Job Manager!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Label Text="Orientation: " FontSize="Medium" />
+            <Label Text="{Binding Orientation}" FontSize="Large" />
+            <Button Text="Get Orientation" Command="{Binding GetOrientationCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
