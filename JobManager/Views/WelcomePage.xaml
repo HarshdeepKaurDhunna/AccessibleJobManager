@@ -1,24 +1,39 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:JobManager.ViewModels"
-             x:Class="JobManager.Views.WelcomePage">
+             xmlns:models="clr-namespace:JobManager.Models" xmlns:views="clr-namespace:JobManager.Views" x:DataType="views:WelcomePage"
+            x:Class="JobManager.Views.WelcomePage">
+    <ContentPage Title="Upload Image">
+        <ContentPage.Content>
+            <StackLayout Margin="20" VerticalOptions="FillAndExpand">
+                <Label Text="Firebase Storage Sample" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                
+                <Button Text="Upload" Clicked="Button_Clicked" />
+                <ProgressBar x:Name="progressBar" />
 
-    <ContentPage.BindingContext>
-        <viewmodels:WelcomeViewModel />
-    </ContentPage.BindingContext>
-    
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Job Manager!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                <Button Text="Download" Clicked="button_download_image_Clicked" />
+                
+                <Image x:Name="backgroundImage"/>
+            </StackLayout>
+            
+            
+         </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="Upload Text">
+        <ContentPage.Content>
+            <StackLayout Margin="20" VerticalOptions="FillAndExpand">
+                <Label  Text="Page 2" FontSize="Medium" />
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="Text File">
+        <ContentPage.Content>
+            <StackLayout Margin="20" VerticalOptions="FillAndExpand">
+                <Label Text="Text To File Ipload:" FontSize="Medium" />
+                <Entry x:Name="TextMessage" Placeholder =""/>
+                <Button Text="Save"  Clicked="saveTextFile"/>
 
-            <Label Text="Orientation: " FontSize="Medium" />
-            <Label Text="{Binding Orientation}" FontSize="Large" />
-            <Button Text="Get Orientation" Command="{Binding GetOrientationCommand}" 
-                    AutomationProperties.IsInAccessibleTree="True"
-                    AutomationProperties.HelpText="Welcome to the Job Manager Application"/>
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>
